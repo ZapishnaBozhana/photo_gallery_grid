@@ -21,6 +21,11 @@
   font-weight: 500;
   src: url("../fonts/roboto-v50-latin-500.woff2") format("woff2");
 }
+body {
+  font-family: "Roboto";
+  font-size: 20px;
+  color: #ffffff;
+}
 h1,
 h2,
 span {
@@ -36,8 +41,8 @@ span {
   font-family: "Delius Unicase";
   font-size: 36px;
   font-weight: 400;
-  line-height: 1, 25;
   text-align: center;
+  color: #000000;
 }
 .section {
   padding: 60px 0;
@@ -68,6 +73,7 @@ span {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
+  cursor: pointer;
 }
 .gal_item img {
   width: 100%;
@@ -81,10 +87,55 @@ span {
 .row_2 {
   grid-row: span 2;
 }
-
-.second {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 30px;
+.gal_item::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    360deg,
+    #241f24 0%,
+    rgba(91, 91, 91, 0.447552) 34.11%,
+    rgba(187, 186, 192, 0.26) 62.5%
+  );
+}
+.gal_item:hover::after {
+  background: linear-gradient(
+    360deg,
+    #241f24 1.04%,
+    rgba(91, 91, 91, 0.26) 6.99%,
+    rgba(187, 186, 192, 0) 12.29%
+  );
+}
+.gal_icons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+}
+.gal_item:hover .gal_icons {
+  opacity: 1;
+}
+.icon {
+  border: 1px;
+  border-radius: 8px;
+}
+.gal_info {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+.name_info {
+  font-weight: 500;
+}
+.data_info {
+  font-weight: 400;
 }
